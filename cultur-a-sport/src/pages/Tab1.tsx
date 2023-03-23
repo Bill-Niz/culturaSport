@@ -1,14 +1,10 @@
 import {
-  IonContent,
-  IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar,
   IonCard,
   IonCardHeader,
-  IonCardTitle,
-  IonSlides,
-  IonSlide,
+  IonCardTitle, IonContent,
+  IonHeader,
+  IonPage, IonSlide, IonSlides, IonTitle,
+  IonToolbar
 } from "@ionic/react";
 import "./Tab1.css";
 
@@ -22,7 +18,7 @@ const Tab1: React.FC = () => {
     <IonPage>
       <IonHeader>
         <IonToolbar>
-          <IonTitle>Home</IonTitle>
+          <IonTitle>Accueil</IonTitle>
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen>
