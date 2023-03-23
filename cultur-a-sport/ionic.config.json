@@ -1,0 +1,7 @@
+{
+  "name": "CulturASport",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

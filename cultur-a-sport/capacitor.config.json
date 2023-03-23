@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "CulturASport",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}
