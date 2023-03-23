@@ -9,7 +9,7 @@ import {
   setupIonicReact
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { ellipse, square, triangle } from 'ionicons/icons';
+import { ellipse, home, square } from 'ionicons/icons';
 import { Redirect, Route } from 'react-router-dom';
 import Tab1 from './pages/Tab1';
 import Tab2 from './pages/Tab2';
@@ -43,7 +43,7 @@ setupIonicReact();
 
 const App: React.FC = () => {
 
-  const [logedIn, setLogedIn] = useState(false)
+  const [logedIn, setLogedIn] = useState(true)
   const [session, setSession] = useState<Session|null>(null)
   useEffect(() => {
     //setSession(supabase.auth.getSession())
@@ -57,8 +57,7 @@ const App: React.FC = () => {
   return (
     <IonApp>
       <IonReactRouter>
-        {!logedIn && <LoginPage></LoginPage>}
-        {logedIn && (<IonTabs>
+         <IonTabs>
           <IonRouterOutlet>
             <Route exact path="/tab1">
               <Tab1 />
@@ -78,7 +77,7 @@ const App: React.FC = () => {
           </IonRouterOutlet>
           <IonTabBar slot="bottom">
             <IonTabButton tab="tab1" href="/tab1">
-              <IonIcon aria-hidden="true" icon={triangle} />
+              <IonIcon aria-hidden="true" icon={home} />
               <IonLabel>Tab 1</IonLabel>
             </IonTabButton>
             <IonTabButton tab="tab2" href="/tab2">
@@ -90,7 +89,7 @@ const App: React.FC = () => {
               <IonLabel>Tab 3</IonLabel>
             </IonTabButton>
           </IonTabBar>
-        </IonTabs>)}
+        </IonTabs>
       </IonReactRouter>
     </IonApp>
   );
