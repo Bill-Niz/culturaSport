@@ -13,6 +13,7 @@ const slideOpts = {
   speed: 400
 };
 
+
 const Tab1: React.FC = () => {
   return (
     <IonPage>
