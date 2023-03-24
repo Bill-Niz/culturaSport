@@ -1,8 +1,9 @@
 import {
   IonCard,
   IonCardHeader,
-  IonCardTitle, IonContent,
-  IonHeader,
+  IonCardSubtitle,
+  IonCardTitle, IonChip, IonContent,
+  IonHeader, IonIcon, IonLabel,
   IonPage, IonSlide, IonSlides, IonTitle,
   IonToolbar
 } from "@ionic/react";
@@ -13,6 +14,22 @@ const slideOpts = {
   speed: 400
 };
 
+const data = [
+  {
+    "title": 'À proximité',
+    "data": [{
+      "img": "https://images.pexels.com/photos/20967/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    }, {}]
+  },
+  {
+    "title": 'Pour toi',
+    "data": [{ "img": "https://images.pexels.com/photos/63238/pexels-photo-63238.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" }]
+  },
+  {
+    "title": 'Découvrir',
+    "data": [{}, {}, {}, {}]
+  },
+]
 
 const Tab1: React.FC = () => {
   return (
@@ -24,122 +41,40 @@ const Tab1: React.FC = () => {
       </IonHeader>
       <IonContent fullscreen>
         <IonContent className="ion-padding">
-          <h1>A proximité</h1>
-          <IonSlides options={slideOpts}>
-            <IonSlide>
-              <IonCard>
-                <img
-                  alt="Silhouette of mountains"
-                  src="https://ionicframework.com/docs/img/demos/card-media.png"
-                />
-                <IonCardHeader>
-                  <IonCardTitle>Card 1</IonCardTitle>
-                </IonCardHeader>
-              </IonCard>
-            </IonSlide>
+          {data.map((d) => (<>
+            <h1>{d.title}</h1>
+            <IonSlides options={slideOpts}>
+              {d.data.map((e) => (
+                <IonSlide>
+                  <IonCard>
+                    <img
+                      alt="Silhouette of mountains"
+                      src={e.img || "https://ionicframework.com/docs/img/demos/card-media.png"}
+                    />
+                    <IonCardHeader>
+                      <IonCardSubtitle>
+                        <IonChip>
+                          
+                          <IonLabel>Art</IonLabel>
 
-            <IonSlide>
-              <IonCard>
-                <img
-                  alt="Silhouette of mountains"
-                  src="https://ionicframework.com/docs/img/demos/card-media.png"
-                />
-                <IonCardHeader>
-                  <IonCardTitle>Card 2</IonCardTitle>
-                </IonCardHeader>
-              </IonCard>
-            </IonSlide>
-            
-            <IonSlide>
-              <IonCard>
-                <img
-                  alt="Silhouette of mountains"
-                  src="https://ionicframework.com/docs/img/demos/card-media.png"
-                />
-                <IonCardHeader>
-                  <IonCardTitle>Card 3</IonCardTitle>
-                </IonCardHeader>
-              </IonCard>
-            </IonSlide>
-          </IonSlides>
+                        </IonChip>
+                        <IonChip>
+                          <IonIcon name="pin" color="primary"></IonIcon>
+                          <IonLabel>Food</IonLabel>
+                        </IonChip>
+                        <IonChip>
+                          <IonIcon name="pin" color="primary"></IonIcon>
+                          <IonLabel>Icon Chip</IonLabel>
+                          <IonIcon name="close"></IonIcon>
+                        </IonChip>
+                      </IonCardSubtitle>
+                      <IonCardTitle>Musée / Gastronomie</IonCardTitle>
+                    </IonCardHeader>
+                  </IonCard>
+                </IonSlide>))}
 
-          <h1>Pour toi</h1>
-          <IonSlides options={slideOpts}>
-            <IonSlide>
-              <IonCard>
-                <img
-                  alt="Silhouette of mountains"
-                  src="https://ionicframework.com/docs/img/demos/card-media.png"
-                />
-                <IonCardHeader>
-                  <IonCardTitle>Card 1</IonCardTitle>
-                </IonCardHeader>
-              </IonCard>
-            </IonSlide>
-
-            <IonSlide>
-              <IonCard>
-                <img
-                  alt="Silhouette of mountains"
-                  src="https://ionicframework.com/docs/img/demos/card-media.png"
-                />
-                <IonCardHeader>
-                  <IonCardTitle>Card 2</IonCardTitle>
-                </IonCardHeader>
-              </IonCard>
-            </IonSlide>
-            
-            <IonSlide>
-              <IonCard>
-                <img
-                  alt="Silhouette of mountains"
-                  src="https://ionicframework.com/docs/img/demos/card-media.png"
-                />
-                <IonCardHeader>
-                  <IonCardTitle>Card 3</IonCardTitle>
-                </IonCardHeader>
-              </IonCard>
-            </IonSlide>
-          </IonSlides>
-
-          <h1>Decouvrir</h1>
-          <IonSlides options={slideOpts}>
-            <IonSlide>
-              <IonCard>
-                <img
-                  alt="Silhouette of mountains"
-                  src="https://ionicframework.com/docs/img/demos/card-media.png"
-                />
-                <IonCardHeader>
-                  <IonCardTitle>Card 1</IonCardTitle>
-                </IonCardHeader>
-              </IonCard>
-            </IonSlide>
-
-            <IonSlide>
-              <IonCard>
-                <img
-                  alt="Silhouette of mountains"
-                  src="https://ionicframework.com/docs/img/demos/card-media.png"
-                />
-                <IonCardHeader>
-                  <IonCardTitle>Card 2</IonCardTitle>
-                </IonCardHeader>
-              </IonCard>
-            </IonSlide>
-            
-            <IonSlide>
-              <IonCard>
-                <img
-                  alt="Silhouette of mountains"
-                  src="https://ionicframework.com/docs/img/demos/card-media.png"
-                />
-                <IonCardHeader>
-                  <IonCardTitle>Card 3</IonCardTitle>
-                </IonCardHeader>
-              </IonCard>
-            </IonSlide>
-          </IonSlides>
+            </IonSlides>
+          </>))}
         </IonContent>
 
       </IonContent>
